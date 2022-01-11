@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import {ListGroup} from 'react-bootstrap'
 import { BsTrash } from 'react-icons/bs'
-class CommentList extends Component{
 
-    render(){
+const CommentList =({comment})=>{
+
+   
         
              return(
             <ListGroup.Item as="li" active>
-                       Rating  {this.props.comment.rate} * - {this.props.comment.comment} {this.props.comment.elementId} {this.props.comment.commentId}<BsTrash className='text-danger' onClick={(e) => this.handleDelete(this.props.comment._id)}/>
+                       Rating  {comment.rate} * - {comment.comment} {comment.elementId} <BsTrash className='text-danger' onClick={(e) => handleDelete(comment._id)}/>
             <hr/>
             </ListGroup.Item>
                     
@@ -16,8 +17,8 @@ class CommentList extends Component{
             
               }
         
-        handleDelete = async(id) =>{
-            
+        const handleDelete = async(id) =>{
+            console.log('trying to delete')
             try {
                 let response = await fetch("https://striveschool-api.herokuapp.com/api/comments/" + id, {
                     method:"DELETE",
@@ -33,7 +34,7 @@ class CommentList extends Component{
                 
             }
 
-        }
+        
 }
 
 export default CommentList;

@@ -29,19 +29,19 @@ const[ showComment,setShowComment] = useState(false)
       {/* <MyBadges Mytext="Buy The Latest Book"  color="danger" /> */}
      <Container fluid>
        <Row>
-         <Col xs={12} sm={8} md={8} lg={showComment?95:12}>
+         <Col xs={6} sm={8} md={8} lg={showComment?9:12}>
             <BookList books={scifiBooks} changeBookAsin = {changeBookAsin} />
             {/* <SingleBook className="singlBook" changeBookAsin = {this.changeBookAsin} book={scifiBooks[0]}/> */}
          </Col>
 
-         <Col className="pt-5 text-center bg-dark" xs={12} sm={4} md={4} lg={3} style={{display:showComment? 'block':'none',position:'fixed', right:'0', height:'100vh'}}>
+         <Col className="pt-5 text-center bg-dark" xs={6} sm={4} md={4} lg={3} style={{display:showComment? 'block':'none',position:'fixed', right:'0', height:'100vh'}}>
                
                 {
                   scifiBooks.filter(book=>book.asin.includes(asin)).map((book)=>(
                     <div key={book.asin} style={{maxWidth:'100px',width:'100%',display:'flex', fontSize:'18px',color:'white'}}>
                     <img className="w-100"src={book.img}/>
                   
-                      <span className="w-100" style={{width:'200px'}}>{book.title} </span>
+                      <span className="w-100" style={{width:'200px',whiteSpace:'wrap'}}>{book.title} </span>
                     
                 </div>))
             }

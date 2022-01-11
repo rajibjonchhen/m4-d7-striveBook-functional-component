@@ -13,7 +13,6 @@ const CommentList =({asin}) =>{
     },[asin])
 
      const fetchData = async() => {
-         console.log('useEffect triggered')
              try {
                  let response = await fetch("https://striveschool-api.herokuapp.com/api/comments/" + asin, {
                      method:"GET",   
@@ -24,7 +23,6 @@ const CommentList =({asin}) =>{
                     
                     let data = await response.json()
                     if(data){
-                        console.log(data)
                         
                         setComments(data)  
                         setIsLoading(false)  
