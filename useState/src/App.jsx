@@ -13,6 +13,7 @@ import MyBadges from './component/MyBadges';
 import BookList from './component/BookList';
 import CommentList from './component/CommentList';
 import AddComment from './component/AddComent';
+import SearchBar from './component/SearchBar';
 
 const App = () => {
 
@@ -23,6 +24,7 @@ const [category,setCategory]= useState(history)
         setAsin(newAsin)
         setShowComment(true)    
   }
+  const [search, setSearch]=useState('')
   const [categoryBtn,setCategoryBtn] = useState([
     {title:'Scifi Books',jsonLink:scifi},
     {title:'Romantic Books',jsonLink:romance},
@@ -35,6 +37,9 @@ const [category,setCategory]= useState(history)
     setCategory(category)
   }
 
+  const handleSearch = (input) => {
+    setSearch(input)
+  }
     return (
       
       <div className="App">
@@ -52,11 +57,12 @@ const [category,setCategory]= useState(history)
         </Col>
              ))
             }</Row>
+            <SearchBar handleSearch={handleSearch} search={search}/>
             </Container>
      <Container fluid>
        <Row>
          <Col xs={6} sm={8} md={8} lg={showComment?9:12}>
-            <BookList books={category} changeBookAsin = {changeBookAsin} />
+            <BookList books={category} changeBookAsin = {changeBookAsin} search={search}/>
             {/* <SingleBook className="singlBook" changeBookAsin = {this.changeBookAsin} book={scifiBooks[0]}/> */}
          </Col>
 

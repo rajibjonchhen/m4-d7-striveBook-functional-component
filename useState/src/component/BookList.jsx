@@ -4,14 +4,14 @@ import{Container, Col, Row, FormControl, Button, Form} from "react-bootstrap"
 
 
 
-const BookList =({books,changeBookAsin})=>{
+const BookList =({books,changeBookAsin,search})=>{
    
     
-const [search,setSearch]= useState("")
+
     
     return(
         <Container fluid>
-          <div style={{position:'sticky',top:'116px',zIndex:'2',padding:'10px',backgroundColor:'white'}}>
+          {/* <div style={{position:'sticky',top:'116px',zIndex:'2',padding:'10px',backgroundColor:'white'}}>
 
            <Form className="d-flex m-3" >
                 <FormControl
@@ -26,7 +26,7 @@ const [search,setSearch]= useState("")
                   <Button variant="outline-success" className='bg-white'>Search</Button>
                   <span>{search}</span>
             </Form>
-          </div>
+          </div> */}
            
             <Row>
             {
