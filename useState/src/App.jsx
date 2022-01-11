@@ -23,6 +23,13 @@ const [category,setCategory]= useState(history)
         setAsin(newAsin)
         setShowComment(true)    
   }
+  const [categoryBtn,setCategoryBtn] = useState([
+    {title:'Scifi Books',jsonLink:scifi},
+    {title:'Romantic Books',jsonLink:romance},
+    {title:'Fantasy Books',jsonLink:fantasy},
+    {title:'Horror Books',jsonLink:horror},
+    {title:'History Books',jsonLink:history}
+  ])
 
   const changeCategory=(category)=>{
     setCategory(category)
@@ -34,13 +41,15 @@ const [category,setCategory]= useState(history)
       {/* <MyWarning warning="This Book is on High Demand" color="info"/> */}
       {/* <MyBadges Mytext="Buy The Latest Book"  color="danger" /> */}
      <Container fluid>
+        <h1>Select the book categories</h1>
        <Row>
-         <Col>
-          <button onClick={(e)=>changeCategory(scifi)}>Scifi Books</button>
-          <button onClick={(e)=>changeCategory(romance)}>Romantic Books</button>
-          <button onClick={(e)=>changeCategory(fantasy)}>Fantasy Books</button>
-          <button onClick={(e)=>changeCategory(horror)}>Horror Books</button>
-          <button onClick={(e)=>changeCategory(history)}>History Books</button>
+         <Col>{
+           categoryBtn.map(btn=>(
+
+             <button className="w-20 m-2 rounded-lg px-4 py-2 bg-dark text-white " onClick={(e)=>changeCategory(btn.jsonLink)}>{btn.title}hello</button>
+           ))
+         }
+          
         </Col>
        </Row>
        <Row>
