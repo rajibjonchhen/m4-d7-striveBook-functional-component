@@ -40,18 +40,20 @@ const [category,setCategory]= useState(history)
       <div className="App">
       {/* <MyWarning warning="This Book is on High Demand" color="info"/> */}
       {/* <MyBadges Mytext="Buy The Latest Book"  color="danger" /> */}
-     <Container fluid>
-        <h1>Select the book categories</h1>
-       <Row>
-         <Col>{
-           categoryBtn.map(btn=>(
+       <Container className="p-2  w-100 text-center" style={{position:'sticky',top:'0px',zIndex:'2',backgroundColor:'black',padding:'50px'}} fluid>
 
-             <button className="w-20 m-2 rounded-lg px-4 py-2 bg-dark text-white " onClick={(e)=>changeCategory(btn.jsonLink)}>{btn.title}hello</button>
-           ))
-         }
-          
+        <h1 className="text-white " >Select the book categories</h1>
+       <Row >
+         {
+           categoryBtn.map(btn=>(
+         <Col xs={12} sm={6} md={4} lg={3} xl={2}>
+             
+             <button className="w-100 m-2 rounded-lg px-4 py-2 bg-dark text-white " onClick={(e)=>changeCategory(btn.jsonLink)}>{btn.title}hello</button>
         </Col>
-       </Row>
+             ))
+            }</Row>
+            </Container>
+     <Container fluid>
        <Row>
          <Col xs={6} sm={8} md={8} lg={showComment?9:12}>
             <BookList books={category} changeBookAsin = {changeBookAsin} />
