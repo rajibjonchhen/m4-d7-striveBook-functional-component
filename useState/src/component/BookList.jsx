@@ -27,7 +27,7 @@ const [search,setSearch]= useState("")
            
             <Row>
             {
-                  books.filter(book=>book.title.includes(search)).map((book)=>(
+                  books.filter(book=>book.title.toLowerCase().includes(search.toLowerCase())).map((book)=>(
                     <Col sm={12} md={6} lg={4} key={book.asin} >
                     <SingleBook  changeBookAsin = {changeBookAsin} book={book}/>
                 </Col>))
