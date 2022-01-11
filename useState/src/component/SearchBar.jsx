@@ -7,7 +7,7 @@ const SearchBar = ({handleSearch,search}) => {
     return(
         <div>
 
-           <Form className="d-flex m-3 w-50" >
+           <Form className="d-flex m-3 w-100 m-auto" style={{maxWidth:'400px'}}>
                 <FormControl
                     type="search"
                     placeholder="Search"

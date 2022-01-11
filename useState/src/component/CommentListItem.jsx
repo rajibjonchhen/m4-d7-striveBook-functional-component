@@ -7,8 +7,8 @@ const CommentList =({comment})=>{
    
         
              return(
-            <ListGroup.Item as="li" active>
-                       Rating  {comment.rate} * - {comment.comment} {comment.elementId} <BsTrash className='text-danger' onClick={(e) => handleDelete(comment._id)}/>
+            <ListGroup.Item as="li" active className='bg-secondary'>
+                       Rating  {comment.rate} * - {comment.comment} {comment.elementId} <BsTrash onClick={(e) => handleDelete(comment._id)}/>
             <hr/>
             </ListGroup.Item>
                     
