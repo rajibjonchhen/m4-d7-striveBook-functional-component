@@ -1,15 +1,13 @@
-import {Component} from "react"
+import {useState} from "react"
 import SingleBook from "../component/SingleBook"
 import{Container, Col, Row, FormControl, Button, Form} from "react-bootstrap"
 
 
 
-class BookList extends Component{
-    state ={
-        search :''
-       }
+const BookList =({books,changeBookAsin})=>{
+   
     
-render(){
+const [search,setSearch]= useState("")
     
     return(
         <Container>
@@ -19,25 +17,25 @@ render(){
                     placeholder="Search"
                     className="me-2"
                     aria-label="Search"
-                      value ={this.state.search}
-                    onChange={(e)=> (this.setState({search:e.target.value}))}
+                      value ={search}
+                    onChange={(e)=> (setSearch(e.target.value))}
                   />
                   
                   <Button variant="outline-success">Search</Button>
-                  <span>{this.state.search}</span>
+                  <span>{search}</span>
             </Form>
            
             <Row>
             {
-                  this.props.books.filter(book=>book.title.toLowerCase().includes(this.state.search.toLowerCase())).map((book)=>(
+                  books.filter(book=>book.title.includes(search)).map((book)=>(
                     <Col sm={12} md={6} lg={4} key={book.asin} >
-                    <SingleBook  changeBookAsin = {this.props.changeBookAsin} book={book}/>
+                    <SingleBook  changeBookAsin = {changeBookAsin} book={book}/>
                 </Col>))
             }
            
                 </Row>
         </Container>
-       ) }
+       ) 
     }
 
 
